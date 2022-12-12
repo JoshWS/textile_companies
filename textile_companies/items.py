@@ -11,8 +11,10 @@ class TextileCompaniesItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
 
+    # Adds company profile url
     url = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds company name
     name = scrapy.Field(output_processor=TakeFirst())
 
     image_url = scrapy.Field(output_processor=TakeFirst())

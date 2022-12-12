@@ -20,14 +20,25 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
         for company in companies:
             yield response.follow(company, self.parse_company)
 
-        # follow pagination links
-        next_page = response.xpath("//a[@title='Next']/@href").extract_first()
-        if next_page is not None:
-            yield response.follow(next_page, callback=self.parse)
+        # # follow pagination links
+        # next_page = response.xpath("//a[@title='Next']/@href").extract_first()
+        # if next_page is not None:
+        #     yield response.follow(next_page, callback=self.parse)
 
     def parse_company(self, response):
         l = ItemLoader(item=TextileCompaniesItem(), response=response)
 
+        # Adds company profile url
         l.add_value("url", response.url)
+
+        # Adds company name
+        l.add_xpath(
+            "name",
+            "//meta[@property='og:title']/@content",
+        )
+
+        # Adds image url
+        if l.get_xpath("//div[@class='item active']/a/@href"):
+            l.add_xpath("image_url", "//div[@class='item active']/a/@href")
 
         return l.load_item()
