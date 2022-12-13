@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.loader import ItemLoader
 from textile_companies.items import TextileCompaniesItem
+from itemloaders.processors import Join
 
 
 class TextileCompaniesMyanmarSpider(scrapy.Spider):
@@ -31,9 +32,17 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
         # Variables with all xpaths
         name = "//meta[@property='og:title']/@content"
         image_url = "//div[@class='item active']/a/@href"
-        address = "//dd[1] | //div[@class='address'][2]/p/text()"
-        township = "//dd[2]"
-
+        address = "//dd[1]/text() | //div[@class='address'][2]/p/text()"
+        township = "//dd[2]/text()"
+        phone_number = "//dd[3]//a/text() | //div[@class='address'][3]//a/text()"
+        # email =
+        # website_url =
+        # social_media_links =
+        # brands_and_services =
+        # business_categories =
+        # category =
+        # company_profile =
+        # page_html =
         # Adds company profile url
         l.add_value("url", response.url)
 
@@ -54,7 +63,7 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
         if l.get_xpath(township):
             l.add_xpath("township", township)
         # Adds phone number
-
+        l.add_xpath("phone_number", phone_number, Join(""))
         # Adds email
 
         # Adds website url

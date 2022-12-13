@@ -27,7 +27,7 @@ class TextileCompaniesItem(scrapy.Item):
     township = scrapy.Field(output_processor=TakeFirst())
 
     # Adds phone number
-    phone = scrapy.Field(output_processor=TakeFirst())
+    phone_number = scrapy.Field(output_processor=TakeFirst())
 
     # Adds email
     email = scrapy.Field(output_processor=TakeFirst())
