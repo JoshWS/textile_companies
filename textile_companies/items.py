@@ -17,26 +17,37 @@ class TextileCompaniesItem(scrapy.Item):
     # Adds company name
     name = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds image url
     image_url = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds address
     address = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds township
     township = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds phone number
     phone = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds email
     email = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds website url
     website = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds social media links
     social_media_links = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds brands and services
     brands_and_services = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds business categories
     business_categories = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds category
     category = scrapy.Field(output_processor=TakeFirst())
 
+    # Adds company profile
     company_profile = scrapy.Field(output_processor=TakeFirst())
 
     # Article text with basic html preserved.

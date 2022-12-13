@@ -28,17 +28,47 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
     def parse_company(self, response):
         l = ItemLoader(item=TextileCompaniesItem(), response=response)
 
+        # Variables with all xpaths
+        name = "//meta[@property='og:title']/@content"
+        image_url = "//div[@class='item active']/a/@href"
+        address = "//dd[1] | //div[@class='address'][2]/p/text()"
+        township = "//dd[2]"
+
         # Adds company profile url
         l.add_value("url", response.url)
 
         # Adds company name
         l.add_xpath(
             "name",
-            "//meta[@property='og:title']/@content",
+            name,
         )
 
         # Adds image url
-        if l.get_xpath("//div[@class='item active']/a/@href"):
-            l.add_xpath("image_url", "//div[@class='item active']/a/@href")
+        if l.get_xpath(image_url):
+            l.add_xpath("image_url", image_url)
+
+        # Adds address
+        l.add_xpath("address", address)
+
+        # Adds township
+        if l.get_xpath(township):
+            l.add_xpath("township", township)
+        # Adds phone number
+
+        # Adds email
+
+        # Adds website url
+
+        # Adds social media links
+
+        # Adds brands and services
+
+        # Adds business categories
+
+        # Adds category
+
+        # Adds company profile
+
+        # Adds page html
 
         return l.load_item()
