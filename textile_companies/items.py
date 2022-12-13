@@ -33,7 +33,7 @@ class TextileCompaniesItem(scrapy.Item):
     email = scrapy.Field(output_processor=TakeFirst())
 
     # Adds website url
-    website = scrapy.Field(output_processor=TakeFirst())
+    website_url = scrapy.Field(output_processor=TakeFirst())
 
     # Adds social media links
     social_media_links = scrapy.Field(output_processor=TakeFirst())
