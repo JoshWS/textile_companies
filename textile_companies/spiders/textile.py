@@ -1,7 +1,7 @@
 import scrapy
 from scrapy.loader import ItemLoader
 from textile_companies.items import TextileCompaniesItem
-from itemloaders.processors import Join
+from itemloaders.processors import Join, MapCompose
 
 
 def decode_email(encoded_string):
@@ -86,46 +86,48 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
         address = "//dd[1]/text() | //div[@class='address'][2]/p/text()"
         township = "//dd[2]/text()"
         phone_number = "//dd[3]//a/text() | //div[@class='address'][3]//a/text()"
-        email = "//dd[4]//span/@data-cfemail"
         website_url = "//label[contains(text(), 'Website')]/../p/a/text() | //dl[@class='dl-horizontal']//a[@rel='nofollow']/text()"
         social_media_links = "//a[@title='Facebook']/@href"
-        # brands_and_services is more complicated, scroll down to find their xpaths.
-        # business_categories is more complicated, scroll down to find their xpaths.
         category = "//div[@class='address'][1]/p/text()"
         company_profile = (
             "//div[@class='col-lg-12 col-md-12 col-xs-12 col-sm-12']/p/text()"
         )
+        # Brands_and_services is more complicated, scroll down to find their xpaths.
+        # Business_categories is more complicated, scroll down to find their xpaths.
+        # Email below
+
         # Adds company profile url
         l.add_value("url", response.url)
 
         # Adds company name
-        l.add_xpath("name", name)
+        l.add_xpath("name", name, MapCompose(str.strip))
 
         # Adds image url
         if l.get_xpath(image_url):
-            l.add_xpath("image_url", image_url)
+            l.add_xpath("image_url", image_url, MapCompose(str.strip))
 
         # Adds address
-        l.add_xpath("address", address)
+        l.add_xpath("address", address, MapCompose(str.strip))
 
         # Adds township
         if l.get_xpath(township):
-            l.add_xpath("township", township)
+            l.add_xpath("township", township, MapCompose(str.strip))
 
         # Adds phone number
-        l.add_xpath("phone_number", phone_number, Join(""))
+        l.add_xpath("phone_number", phone_number, Join(""), MapCompose(str.strip))
 
         # Adds email
-        if l.get_xpath(email[0]):
+        if l.get_xpath("//dd[4]//span/@data-cfemail"):
+            email = l.get_xpath("//dd[4]//span/@data-cfemail")[0]
             l.add_value("email", decode_email(email))
 
         # Adds website url
         if l.get_xpath(website_url):
-            l.add_xpath("website_url", website_url)
+            l.add_xpath("website_url", website_url, MapCompose(str.strip))
 
         # Adds social media links
         if l.get_xpath(social_media_links):
-            l.add_xpath("social_media_links", social_media_links)
+            l.add_xpath("social_media_links", social_media_links, MapCompose(str.strip))
 
         # First field
         if l.get_xpath("//h2[@class='h-businessCat'][1]/text()"):
@@ -133,9 +135,19 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
             first_field_text = "//div[@class='business-category'][1]/ul/li/text()"
 
             if first_field_name == "Business Categories":
-                l.add_xpath("business_categories", first_field_text, Join(" "))
+                l.add_xpath(
+                    "business_categories",
+                    first_field_text,
+                    Join(" "),
+                    MapCompose(str.strip),
+                )
             elif first_field_name == "Brands / Services":
-                l.add_xpath("brands_and_services", first_field_text, Join(" "))
+                l.add_xpath(
+                    "brands_and_services",
+                    first_field_text,
+                    Join(" "),
+                    MapCompose(str.strip),
+                )
 
         # Second field
         if l.get_xpath("//h2[@class='h-businessCat'][2]/text()"):
@@ -143,16 +155,26 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
             second_field_text = "//div[@class='business-category'][2]/ul/li/text()"
 
             if second_field_name == "Business Categories":
-                l.add_xpath("business_categories", second_field_text, Join(" "))
+                l.add_xpath(
+                    "business_categories",
+                    second_field_text,
+                    Join(" "),
+                    MapCompose(str.strip),
+                )
             elif second_field_name == "Brands / Services":
-                l.add_xpath("brands_and_services", second_field_text, Join(" "))
+                l.add_xpath(
+                    "brands_and_services",
+                    second_field_text,
+                    Join(" "),
+                    MapCompose(str.strip),
+                )
 
         # Adds category
         if l.get_xpath(category):
-            l.add_xpath("category", category)
+            l.add_xpath("category", category, MapCompose(str.strip))
 
         # Adds company profile
         if l.get_xpath(company_profile):
-            l.add_xpath("company_profile", company_profile)
+            l.add_xpath("company_profile", company_profile, MapCompose(str.strip))
 
         return l.load_item()
