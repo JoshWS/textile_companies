@@ -51,8 +51,8 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
         email = "//dd[4]//span/@data-cfemail"
         website_url = "//label[contains(text(), 'Website')]/../p/a/text() | //dl[@class='dl-horizontal']//a[@rel='nofollow']/text()"
         social_media_links = "//a[@title='Facebook']/@href"
-        # brands_and_services =
-        # business_categories =
+        # brands_and_services is more complicated, scroll down to find their xpaths.
+        # business_categories is more complicated, scroll down to find their xpaths.
         # category =
         # company_profile =
         # page_html =
@@ -60,38 +60,54 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
 
         l.add_value("url", response.url)
 
-        # Adds company name
-        l.add_xpath("name", name)
+        # # Adds company name
+        # l.add_xpath("name", name)
 
-        # Adds image url
-        if l.get_xpath(image_url):
-            l.add_xpath("image_url", image_url)
+        # # Adds image url
+        # if l.get_xpath(image_url):
+        #     l.add_xpath("image_url", image_url)
 
-        # Adds address
-        l.add_xpath("address", address)
+        # # Adds address
+        # l.add_xpath("address", address)
 
-        # Adds township
-        if l.get_xpath(township):
-            l.add_xpath("township", township)
+        # # Adds township
+        # if l.get_xpath(township):
+        #     l.add_xpath("township", township)
 
-        # Adds phone number
-        l.add_xpath("phone_number", phone_number, Join(""))
+        # # Adds phone number
+        # l.add_xpath("phone_number", phone_number, Join(""))
 
-        # Adds email
-        if l.get_xpath(email[0]):
-            l.add_value("email", decode_email(email))
+        # # Adds email
+        # if l.get_xpath(email[0]):
+        #     l.add_value("email", decode_email(email))
 
-        # Adds website url
-        if l.get_xpath(website_url):
-            l.add_xpath("website_url", website_url)
+        # # Adds website url
+        # if l.get_xpath(website_url):
+        #     l.add_xpath("website_url", website_url)
 
-        # Adds social media links
-        if l.get_xpath(social_media_links):
-            l.add_xpath("social_media_links", social_media_links)
+        # # Adds social media links
+        # if l.get_xpath(social_media_links):
+        #     l.add_xpath("social_media_links", social_media_links)
 
-        # Adds brands and services
+        # First field
+        if l.get_xpath("//h2[@class='h-businessCat'][1]/text()"):
+            first_field_name = l.get_xpath("//h2[@class='h-businessCat'][1]/text()")[0]
+            first_field_text = "//div[@class='business-category'][1]/ul/li/text()"
 
-        # Adds business categories
+            if first_field_name == "Business Categories":
+                l.add_xpath("business_categories", first_field_text, Join(" "))
+            elif first_field_name == "Brands / Services":
+                l.add_xpath("brands_and_services", first_field_text, Join(" "))
+
+        # Second field
+        if l.get_xpath("//h2[@class='h-businessCat'][2]/text()"):
+            second_field_name = l.get_xpath("//h2[@class='h-businessCat'][2]/text()")[0]
+            second_field_text = "//div[@class='business-category'][2]/ul/li/text()"
+
+            if second_field_name == "Business Categories":
+                l.add_xpath("business_categories", second_field_text, Join(" "))
+            elif second_field_name == "Brands / Services":
+                l.add_xpath("brands_and_services", second_field_text, Join(" "))
 
         # Adds category
 
