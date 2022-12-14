@@ -49,6 +49,3 @@ class TextileCompaniesItem(scrapy.Item):
 
     # Adds company profile
     company_profile = scrapy.Field(output_processor=TakeFirst())
-
-    # Article text with basic html preserved.
-    html = scrapy.Field(output_processor=TakeFirst())
