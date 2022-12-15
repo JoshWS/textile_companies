@@ -10,6 +10,8 @@ packages = [{include = "textile_companies"}]
 python = "^3.10"
 Scrapy = "^2.7.1"
 visidata = "^2.10.2"
+sqlitedict = "^2.1.0"
+pandas = "^1.5.2"
 
 
 [tool.poetry.group.dev.dependencies]

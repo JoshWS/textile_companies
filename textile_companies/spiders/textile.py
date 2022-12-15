@@ -22,46 +22,46 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
     ]
     start_urls = [
         "https://www.textiledirectory.com.mm/categories/dyeing/chemicals.html?q=Chemicals",
-        "https://www.textiledirectory.com.mm/categories/dyeing/dyeing-printing-textiles.html?q=Dyeing%20&Printing_Textiles=",
-        "https://www.textiledirectory.com.mm/categories/dyeing/dyes.html?q=Dyes",
-        "https://www.textiledirectory.com.mm/categories/dyeing/chemicals.html?q=Chemicals",
-        "https://www.textiledirectory.com.mm/categories/dyeing/dyeing-printing-textiles.html?q=Dyeing%20&Printing_Textiles=",
-        "https://www.textiledirectory.com.mm/categories/dyeing/dyes.html?q=Dyes",
-        "https://www.textiledirectory.com.mm/categories/dyeing/laundries.html?q=Laundries",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/bags.html?q=Bags",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/batik.html?q=Batik",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/bedroom-accessories.html?q=Bedroom%20Accessories",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/children-infants-wear.html?q=Children%20&Infants_Wear=",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/curtains.html?q=Curtains",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/fabric-shops.html?q=Fabric%20Shops",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/fashion-ladies-wear.html?q=Fashion%20&Ladies_Wear=",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/hat-shops.html?q=Hat%20Shops",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/men-s-wear.html?q=Men's%20Wear",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/silk-wear.html?q=Silk%20Wear",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/sports-wear.html?q=Sports%20Wear",
-        "https://www.textiledirectory.com.mm/categories/fashion-textile-products/traditional-wear.html?q=Traditional%20Wear",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/buttons.html?q=Buttons",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/embroidery-machines-services.html?q=Embroidery%20Machines%20&Services=",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/sewing-machines-accessories.html?q=Sewing%20Machines%20&Accessories=",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/textile-garment-accessories.html?q=Textile%20&Garment_Accessories=",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/textile-garment-machinery.html?q=Textile%20&Garment_Machinery=",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/thread.html?q=Thread",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/yarn.html?q=Yarn",
-        "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/zippers.html?q=Zippers",
-        "https://www.textiledirectory.com.mm/categories/manufacturers/garment-factories.html?q=Garment%20Factories",
-        "https://www.textiledirectory.com.mm/categories/manufacturers/longyi.html?q=Longyi",
-        "https://www.textiledirectory.com.mm/categories/manufacturers/thingan.html?q=Thingan",
-        "https://www.textiledirectory.com.mm/categories/manufacturers/weaving-mills.html?q=Weaving%20Mills",
-        "https://www.textiledirectory.com.mm/categories/shipping/boxes-cartons.html?q=Boxes%20&Cartons=",
-        "https://www.textiledirectory.com.mm/categories/shipping/custom-clearing-agents.html?q=Custom%20Clearing%20Agents",
-        "https://www.textiledirectory.com.mm/categories/shipping/freight-forwarder.html?q=Freight%20Forwarder",
-        "https://www.textiledirectory.com.mm/categories/shipping/packing-equipment.html?q=Packing%20Equipment",
-        "https://www.textiledirectory.com.mm/categories/support-services/boiler-steam-system.html?q=Boiler%20&Steam_System=",
-        "https://www.textiledirectory.com.mm/categories/support-services/dyeing-and-finishing-machinery.html?q=Dyeing%20and%20Finishing%20Machinery",
-        "https://www.textiledirectory.com.mm/categories/support-services/fashion-designer.html?q=Fashion%20Designer",
-        "https://www.textiledirectory.com.mm/categories/support-services/tailors.html?q=Tailors",
-        "https://www.textiledirectory.com.mm/categories/training/fashion-design-training.html?q=Fashion%20Design%20Training",
-        "https://www.textiledirectory.com.mm/categories/training/sewing-classes.html?q=Sewing%20Classes",
+        # "https://www.textiledirectory.com.mm/categories/dyeing/dyeing-printing-textiles.html?q=Dyeing%20&Printing_Textiles=",
+        # "https://www.textiledirectory.com.mm/categories/dyeing/dyes.html?q=Dyes",
+        # "https://www.textiledirectory.com.mm/categories/dyeing/chemicals.html?q=Chemicals",
+        # "https://www.textiledirectory.com.mm/categories/dyeing/dyeing-printing-textiles.html?q=Dyeing%20&Printing_Textiles=",
+        # "https://www.textiledirectory.com.mm/categories/dyeing/dyes.html?q=Dyes",
+        # "https://www.textiledirectory.com.mm/categories/dyeing/laundries.html?q=Laundries",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/bags.html?q=Bags",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/batik.html?q=Batik",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/bedroom-accessories.html?q=Bedroom%20Accessories",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/children-infants-wear.html?q=Children%20&Infants_Wear=",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/curtains.html?q=Curtains",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/fabric-shops.html?q=Fabric%20Shops",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/fashion-ladies-wear.html?q=Fashion%20&Ladies_Wear=",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/hat-shops.html?q=Hat%20Shops",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/men-s-wear.html?q=Men's%20Wear",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/silk-wear.html?q=Silk%20Wear",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/sports-wear.html?q=Sports%20Wear",
+        # "https://www.textiledirectory.com.mm/categories/fashion-textile-products/traditional-wear.html?q=Traditional%20Wear",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/buttons.html?q=Buttons",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/embroidery-machines-services.html?q=Embroidery%20Machines%20&Services=",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/sewing-machines-accessories.html?q=Sewing%20Machines%20&Accessories=",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/textile-garment-accessories.html?q=Textile%20&Garment_Accessories=",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/textile-garment-machinery.html?q=Textile%20&Garment_Machinery=",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/thread.html?q=Thread",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/yarn.html?q=Yarn",
+        # "https://www.textiledirectory.com.mm/categories/garment-textile-accessories/zippers.html?q=Zippers",
+        # "https://www.textiledirectory.com.mm/categories/manufacturers/garment-factories.html?q=Garment%20Factories",
+        # "https://www.textiledirectory.com.mm/categories/manufacturers/longyi.html?q=Longyi",
+        # "https://www.textiledirectory.com.mm/categories/manufacturers/thingan.html?q=Thingan",
+        # "https://www.textiledirectory.com.mm/categories/manufacturers/weaving-mills.html?q=Weaving%20Mills",
+        # "https://www.textiledirectory.com.mm/categories/shipping/boxes-cartons.html?q=Boxes%20&Cartons=",
+        # "https://www.textiledirectory.com.mm/categories/shipping/custom-clearing-agents.html?q=Custom%20Clearing%20Agents",
+        # "https://www.textiledirectory.com.mm/categories/shipping/freight-forwarder.html?q=Freight%20Forwarder",
+        # "https://www.textiledirectory.com.mm/categories/shipping/packing-equipment.html?q=Packing%20Equipment",
+        # "https://www.textiledirectory.com.mm/categories/support-services/boiler-steam-system.html?q=Boiler%20&Steam_System=",
+        # "https://www.textiledirectory.com.mm/categories/support-services/dyeing-and-finishing-machinery.html?q=Dyeing%20and%20Finishing%20Machinery",
+        # "https://www.textiledirectory.com.mm/categories/support-services/fashion-designer.html?q=Fashion%20Designer",
+        # "https://www.textiledirectory.com.mm/categories/support-services/tailors.html?q=Tailors",
+        # "https://www.textiledirectory.com.mm/categories/training/fashion-design-training.html?q=Fashion%20Design%20Training",
+        # "https://www.textiledirectory.com.mm/categories/training/sewing-classes.html?q=Sewing%20Classes",
     ]
 
     def parse(self, response):
@@ -73,15 +73,15 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
             yield response.follow(company, self.parse_company)
 
         # follow pagination links
-        next_page = response.xpath("//a[@title='Next']/@href").extract_first()
-        if next_page is not None:
-            yield response.follow(next_page, callback=self.parse)
+        # next_page = response.xpath("//a[@title='Next']/@href").extract_first()
+        # if next_page is not None:
+        #     yield response.follow(next_page, callback=self.parse)
 
     def parse_company(self, response):
         l = ItemLoader(item=TextileCompaniesItem(), response=response)
 
         # Variables with all xpaths
-        name = "//meta[@property='og:title']/@content"
+        company_name = "//meta[@property='og:title']/@content"
         image_url = "//div[@class='item active']/a/@href"
         address = "//dd[1]/text() | //div[@class='address'][2]/p/text()"
         township = "//dd[2]/text()"
@@ -100,7 +100,7 @@ class TextileCompaniesMyanmarSpider(scrapy.Spider):
         l.add_value("url", response.url)
 
         # Adds company name
-        l.add_xpath("name", name, MapCompose(str.strip))
+        l.add_xpath("company_name", company_name, MapCompose(str.strip))
 
         # Adds image url
         if l.get_xpath(image_url):
